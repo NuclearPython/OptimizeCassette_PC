@@ -1,0 +1,147 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>f1ecb4b2-d058-4e58-afe3-8ec4a679a334</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>TestMCNPGnowee.py</StartupFile>
+    <SearchPath>GnoweeNSGAPython3</SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>OptimizeCassette</Name>
+    <RootNamespace>OptimizeCassette</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="functions.py" />
+    <Compile Include="GnoweeNSGAPython3\BasicTest_Multi.py" />
+    <Compile Include="GnoweeNSGAPython3\Constraints.py" />
+    <Compile Include="GnoweeNSGAPython3\ExampleFunction.py" />
+    <Compile Include="GnoweeNSGAPython3\Gnowee.py" />
+    <Compile Include="GnoweeNSGAPython3\GnoweeHeuristics.py" />
+    <Compile Include="GnoweeNSGAPython3\GnoweeHeuristics_multi.py" />
+    <Compile Include="GnoweeNSGAPython3\GnoweeNSGAPython3.py" />
+    <Compile Include="GnoweeNSGAPython3\GnoweeUtilities.py" />
+    <Compile Include="GnoweeNSGAPython3\GnoweeUtilities_multi.py" />
+    <Compile Include="GnoweeNSGAPython3\Gnowee_multi.py" />
+    <Compile Include="GnoweeNSGAPython3\Gnowee_multi_testNSGA.py" />
+    <Compile Include="GnoweeNSGAPython3\ManualTest.py" />
+    <Compile Include="__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GnoweeNSGAPython3\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GnoweeNSGAPython3\MultiObjectiveTest.py" />
+    <Compile Include="GnoweeNSGAPython3\MultiVariateTest.py" />
+    <Compile Include="GnoweeNSGAPython3\nsga2\evolution.py" />
+    <Compile Include="GnoweeNSGAPython3\nsga2\individual.py" />
+    <Compile Include="GnoweeNSGAPython3\nsga2\population.py" />
+    <Compile Include="GnoweeNSGAPython3\nsga2\problem.py" />
+    <Compile Include="GnoweeNSGAPython3\nsga2\utils.py" />
+    <Compile Include="GnoweeNSGAPython3\nsga2\__init__.py" />
+    <Compile Include="GnoweeNSGAPython3\NSGAmethods.py" />
+    <Compile Include="GnoweeNSGAPython3\NSGAOutline3.py" />
+    <Compile Include="GnoweeNSGAPython3\NSGATestFunctions.py" />
+    <Compile Include="GnoweeNSGAPython3\NSGA_evolution_nochildren.py" />
+    <Compile Include="GnoweeNSGAPython3\ObjectiveFunction.py" />
+    <Compile Include="GnoweeNSGAPython3\ObjectiveFunction_Multi.py" />
+    <Compile Include="GnoweeNSGAPython3\OptiPlot.py" />
+    <Compile Include="GnoweeNSGAPython3\OptiPlot_multi.py" />
+    <Compile Include="GnoweeNSGAPython3\ProblemWithLists.py" />
+    <Compile Include="GnoweeNSGAPython3\Sampling.py" />
+    <Compile Include="GnoweeNSGAPython3\Sampling_multi.py" />
+    <Compile Include="GnoweeNSGAPython3\TestFunction.py" />
+    <Compile Include="GnoweeNSGAPython3\TestInFolder2.py" />
+    <Compile Include="GnoweeNSGAPython3\TestInFolder2_success.py" />
+    <Compile Include="GnoweeNSGAPython3\TestNSGAImplement.py" />
+    <Compile Include="GnoweeNSGAPython3\TSP.py" />
+    <Compile Include="GnoweeNSGAPython3\WildTest.py" />
+    <Compile Include="CameronSubmission.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MCNP_File_Handler.py" />
+    <Compile Include="getResults.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestMCNPGnowee.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestFileCreation.py" />
+    <Compile Include="TestMCNPObjFunc.py" />
+    <Compile Include="TestReading.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="translate_feature_vector.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OptimizeCassette.py" />
+    <Compile Include="TestFileUtilities.py" />
+    <Compile Include="WorkingWithMCNPUtilities.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GnoweeNSGAPython3\" />
+    <Folder Include="GnoweeNSGAPython3\nsga2\" />
+    <Folder Include="GnoweeNSGAPython3\nsga2\__pycache__\" />
+    <Folder Include="GnoweeNSGAPython3\__pycache__\" />
+    <Folder Include="output\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GnoweeNSGAPython3\GnoweeNSGAPython3.pyproj" />
+    <Content Include="GnoweeNSGAPython3\GnoweeNSGAPython3.pyproj.user" />
+    <Content Include="GnoweeNSGAPython3\nsga2\evolution.py.bak" />
+    <Content Include="GnoweeNSGAPython3\nsga2\evolution.pyc" />
+    <Content Include="GnoweeNSGAPython3\nsga2\individual.py.bak" />
+    <Content Include="GnoweeNSGAPython3\nsga2\individual.pyc" />
+    <Content Include="GnoweeNSGAPython3\nsga2\population.py.bak" />
+    <Content Include="GnoweeNSGAPython3\nsga2\population.pyc" />
+    <Content Include="GnoweeNSGAPython3\nsga2\problem.py.bak" />
+    <Content Include="GnoweeNSGAPython3\nsga2\problem.pyc" />
+    <Content Include="GnoweeNSGAPython3\nsga2\utils.py.bak" />
+    <Content Include="GnoweeNSGAPython3\nsga2\utils.pyc" />
+    <Content Include="GnoweeNSGAPython3\nsga2\__init__.py.bak" />
+    <Content Include="GnoweeNSGAPython3\nsga2\__init__.pyc" />
+    <Content Include="GnoweeNSGAPython3\nsga2\__pycache__\evolution.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\nsga2\__pycache__\individual.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\nsga2\__pycache__\population.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\nsga2\__pycache__\problem.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\nsga2\__pycache__\utils.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\nsga2\__pycache__\__init__.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\Constraints.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\Gnowee.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\GnoweeHeuristics.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\GnoweeHeuristics_multi.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\GnoweeUtilities.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\GnoweeUtilities_multi.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\Gnowee_multi.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\Gnowee_multi_testNSGA.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\NSGAmethods.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\NSGATestFunctions.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\ObjectiveFunction.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\ObjectiveFunction_Multi.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\OptiPlot.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\OptiPlot_multi.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\Sampling.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\Sampling_multi.cpython-37.pyc" />
+    <Content Include="GnoweeNSGAPython3\__pycache__\TestFunction.cpython-37.pyc" />
+    <Content Include="JohnMockCassette.inp" />
+    <Content Include="MockCassette.inp" />
+    <Content Include="run.bat" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
