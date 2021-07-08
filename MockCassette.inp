@@ -1,0 +1,104 @@
+Alex Problem Fixed Geo and Cell
+c ++++++++++++++++++++++
+c cell cards
+c ++++++++++++++++++++++
+1 <mat1> -<dens1>   -1  2  -3  imp:n=1 
+2 <mat2> -<dens2>  -1  3  -4  imp:n=1 
+3 <mat3> -<dens3>  -1  4  -5  imp:n=1 
+4 <mat4> -<dens4>   -1  5  -6  imp:n=1 
+5 <mat5> -<dens5> -1  6  -7  imp:n=1 
+6 <mat6> -<dens6>  -1  7  -8  imp:n=1 
+7 <mat7> -<dens7>   -1  8  -9  imp:n=1 
+8 <mat8> -<dens8>  -1  9 -10  imp:n=1 
+9 <mat9> -<dens9> -1 10 -11  imp:n=1 
+10 <mat10> -<dens10>  -1 11 -12  imp:n=1 
+11 <mat11> -<dens11> -1 12 -13  imp:n=1 
+12 <mat12> -<dens12> -1 13 -14  imp:n=1 
+13 <mat13> -<dens13>  -1 14 -15  imp:n=1 
+14 <mat14> -<dens14> -1 15 -16  imp:n=1 
+15 <mat15> -<dens15> -1 16 -17  imp:n=1 
+16 <mat16> -<dens16>  -1 17 -18  imp:n=1 
+17 <mat17> -<dens17> -1 18 -19  imp:n=1 
+18 <mat18> -<dens18> -1 19 -20  imp:n=1
+19 <mat19> -<dens19>  -1 20 -21  imp:n=1
+20 <mat20> -<dens20> -1 21 -22  imp:n=1
+c Defined cell 99 as explicitly outside all plates, inside cassette volume
+c Add Al to this cell definition to set cassette wall material
+99 0 #1 #2 #3 #4 #5
+     #6 #7 #8 #9 #10
+     #11 #12 #13 #14 #15
+     #16 #17 #18 #19 #12 -23 imp:n=1
+c Added this cell as outside the cassette walls
+999 0 #99 imp:n=0
+
+c ++++++++++++++++++++++
+c surface cards
+c ++++++++++++++++++++++
+1  rpp  0  15.24 0  25.4 0  15.24
+c added cassette wall rpp
+23 rpp -0.635 15.875 -0.635 26.035 -0.635 15.875
+2 PY 0
+3 PY 1.27
+4 PY 2.54
+5 PY 3.81
+6 PY 5.08
+7 PY 6.35
+8 PY 7.62
+9 PY 8.89
+10 PY 10.16
+11 PY 11.43
+12 PY 12.7
+13 PY 13.97
+14 PY 15.24
+15 PY 16.51
+16 PY 17.78
+17 PY 19.05
+18 PY 20.32
+19 PY 21.59
+20 PY 22.86
+21 PY 24.13
+22 PY 25.4
+
+c ++++++++++++++++++++++
+c data cards
+c ++++++++++++++++++++++
+mode n
+c Reduced number of neutrons per generation to 2k from 200k. Seems to converge keff fine (<20 PCM)
+kcode 2000 1 50 2000
+c Set the ksrc to the center of the cassette. It is a small enough geometry that it works. 
+ksrc 7.62 12.7 7.62
+c ksrc 0.1 1.28 0.1 
+c MCNP really did not like this source definition. It was creating particles outside the geometry and getting hung up because of it.
+c ksrc   0.1 1.28 0.1 0.1 5.1 0.1 0.1 8.9 0.1 0.1 12.8 0.1 
+c        0.1 16.6 0.1 0.1 21 0.1 0.1 24.5 0.1 $ if you want to start in each of your plates with fuel.
+c task 2 --- plot energy fluence spatial distribution on a 100 x 100 x 1 mesh
+*fmesh14:n
+     origin=0 0 0 $ x, y, z lower bounds of the mesh
+     imesh 15.24 $ x upper bound
+     iints 100 $ number of bins between x lower and upper bounds
+     jmesh 25.4 $ y upper bound
+     jints 160 $ number of bins between y lower and upper bounds
+c Set kmesh to 15.24 since it is the top of the plates
+     kmesh 15.24 $ z upper bound
+     kints 1 $ only 1 bin, so effectively the tally is a x-y 2-D plot
+c This is personal preference but I like to have mesh tallies printed as sets of arrays rather than a 1d vector.  
+     out ij
+c I like to define the cross section library in the material cards with the '.70c'. That's ENDF 7.0 (over a decade hold, but pretty good)
+c See the manual for the available libraries.
+c m0 plib=84p elib=03e   $ specify default cross-section library
+c Polyethylene, Non-borated -0.93 g/cc
+m1    1001.70c -0.143716
+      6000.70c -0.856284
+c Added s(alpha, beta) treatment to poly. 
+c Ask Dr. Sobes, but in essence at low neutron energies the way in which atoms are bounded together matters and 
+c this accounts for that specifically for hydrogen in polyethylene. 
+mt1 poly.10t
+c FNS 9.75% Enrich. Fuel, -18.94 g/cc
+m2    92232.70c -0.000000002
+      92234.70c -0.0026
+      92235.70c -0.0975
+      92236.70c -0.0046
+      92238.70c -0.895299998
+c Sodium metal -0.971 g/cc
+m3    11023.70c 1
+
